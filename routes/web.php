@@ -1,9 +1,15 @@
 <?php
 
 use App\Http\Controllers\{ProfileController, QuestionController};
-use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\{Route};
 
 Route::get('/', function () {
+    if (app()->isLocal()) {
+        auth()->guard()->loginUsingId(1);
+
+        return to_route('dashboard');
+    }
+
     return view('welcome');
 });
 
