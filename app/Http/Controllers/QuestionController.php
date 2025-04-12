@@ -10,7 +10,6 @@ class QuestionController extends Controller
 {
     public function store(): RedirectResponse
     {
-
         request()->validate([
             'question' => [
                 'required',
