@@ -14,5 +14,16 @@
 
                    <x-btn.reset type="reset">Cancel</x-btn.reset>
                 </x-form>
+
+                <hr class="my-6 border-gray-800"/>
+
+                <div class="flex flex-col items-center">
+                    <h1 class="mb-6 text-xl dark:text-gray-600">List of question</h1>
+                    @foreach($questions as $question)
+                        <x-card :question="$question" />
+                    @endforeach
+                </div>
             </x-content>
+
+
 </x-app-layout>
