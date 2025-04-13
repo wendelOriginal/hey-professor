@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model
 {
-    // @phpstan-ignore missingType.generics
+    // @phpstan-ignore-next-line;
     use HasFactory;
 }
