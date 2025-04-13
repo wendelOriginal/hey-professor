@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\{Route};
 
 Route::get('/', function () {
     if (app()->isLocal()) {
+
         auth()->guard()->loginUsingId(1);
 
         return to_route('dashboard');

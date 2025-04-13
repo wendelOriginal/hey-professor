@@ -10,14 +10,11 @@ class LikeQuestionController extends Controller
 {
     public function __invoke(Question $question): RedirectResponse
     {
-
-        User::findOrFail(auth()->guard()->id())->likeQuestion()->create(
-            [
-                'question_id' => $question->id,
-                'like'        => 1,
-                'unlike'      => 0,
-            ]
-        );
+        /**
+         * @var User $user
+         */
+        $user = auth()->guard()->user();
+        $user->like($question);
 
         return back();
     }
