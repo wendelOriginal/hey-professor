@@ -10,7 +10,8 @@ it('should be able to like a question', function () {
 
     actingAs($user);
 
-    post(route('question.like', $question));
+    post(route('question.like', $question))
+        ->assertRedirect();
 
     assertDatabaseHas('like_questions', [
         'user_id'     => $user->id,
