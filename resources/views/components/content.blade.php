@@ -1,5 +1,5 @@
 <div class="py-12">
-    <div class="max-w-sm mx-auto">
+    <div class="w-10/12 mx-auto">
         {{ $slot }}
     </div>
 
