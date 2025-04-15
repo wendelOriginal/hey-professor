@@ -20,13 +20,23 @@ class Question extends Model
         return $this->hasMany(LikeQuestion::class);
     }
 
-    /**
-     * @return Attribute<int, $this>
-     */
-    public function likes(): Attribute
-    {
-        return new Attribute(
-            get: fn () => $this->likeQuestion()->sum('like')
-        );
-    }
+    // /**
+    //  * @return Attribute<int, $this>
+    //  */
+    // public function likes(): Attribute
+    // {
+    //     return new Attribute(
+    //         get: fn() => $this->likeQuestion()->sum('like')
+    //     );
+    // }
+    // /**
+    //  * @return Attribute<int, $this>
+    //  */
+
+    // public function unlikes(): Attribute
+    // {
+    //     return new Attribute(
+    //         get: fn() => $this->likeQuestion()->sum('unlike')
+    //     );
+    // }
 }
