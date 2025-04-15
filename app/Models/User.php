@@ -60,7 +60,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function like(Question $question): void
     {
-        $this->likeQuestion()->create(
+        $this->likeQuestion()->UpdateOrCreate(
             [
                 'question_id' => $question->id,
                 'like'        => 1,
