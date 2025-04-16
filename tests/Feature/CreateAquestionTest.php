@@ -41,7 +41,7 @@ it('should have at least 10 characters', function () {
     assertDatabaseCount('questions', 0);
 });
 
-it('iniciando test de drash', function () {
+it('should be true and not false drash field', function () {
 
     actingAs(User::factory()->create());
 
