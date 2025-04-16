@@ -28,7 +28,6 @@ it('should check if ends with question mark ?', function () {
         ['question' => 'Are you sure that is a question? It is missing the question mark in the end.']
     );
     assertDatabaseCount('questions', 0);
-
 });
 
 it('should have at least 10 characters', function () {
@@ -40,4 +39,19 @@ it('should have at least 10 characters', function () {
 
     $request->assertSessionHasErrors(['question' => __('validation.min.string', ['attribute' => 'question', 'min' => 10])]);
     assertDatabaseCount('questions', 0);
+});
+
+it('iniciando test de drash', function () {
+
+    actingAs(User::factory()->create());
+
+    post(route('question.store', [
+        'question' => str_repeat('*', 55) . "?",
+        'drash'    => true,
+    ]));
+
+    assertDatabaseHas('questions', [
+        'question' => str_repeat('*', 55) . "?",
+        'drash'    => true,
+    ]);
 });
