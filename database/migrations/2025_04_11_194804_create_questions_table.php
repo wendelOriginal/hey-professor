@@ -13,7 +13,7 @@ return new class () extends Migration {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
             $table->text('question');
-            $table->boolean('drash')->default(false);
+            $table->boolean('draft')->default(true);
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class () extends Migration {
     public function down(): void
     {
         Schema::dropIfExists('questions');
-        Schema::dropIfExists('drash');
+        Schema::dropIfExists('draft');
     }
 };

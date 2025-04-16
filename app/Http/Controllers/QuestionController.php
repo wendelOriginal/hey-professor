@@ -20,14 +20,10 @@ class QuestionController extends Controller
                     }
                 },
             ],
-            'drash' => [
-                'nullable',
-                'boolean',
-            ],
         ]);
         Question::query()->create([
             'question' => request()->question,
-            'drash'    => request()->drash ?? true,
+            'draft'    => true,
         ]);
 
         return to_route('dashboard');

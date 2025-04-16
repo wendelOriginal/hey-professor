@@ -41,17 +41,16 @@ it('should have at least 10 characters', function () {
     assertDatabaseCount('questions', 0);
 });
 
-it('should be true and not false drash field', function () {
+it('should be true and not false draft field', function () {
 
     actingAs(User::factory()->create());
 
     post(route('question.store', [
-        'question' => str_repeat('*', 55) . "?",
-        'drash'    => true,
+        'question' => str_repeat('*', 55) . "?"
     ]));
 
     assertDatabaseHas('questions', [
         'question' => str_repeat('*', 55) . "?",
-        'drash'    => true,
+        'draft'    => true,
     ]);
 });
