@@ -55,3 +55,11 @@ it('should be true and not false draft field', function () {
         'draft'    => true,
     ]);
 });
+
+it('no access, log in', function () {
+    $this->post(route('question.store', [
+        "question" => str_repeat('*', 50) . '?',
+    ]))
+        ->assertStatus(302)
+        ->assertRedirect('/login');
+});
