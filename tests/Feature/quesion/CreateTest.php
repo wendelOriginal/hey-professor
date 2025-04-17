@@ -9,6 +9,7 @@ it('should be able to create a new question bigger than 255 characters', functio
     actingAs(User::factory()->create());
 
     $request = post(route('question.store'), [
+
         "question" => str_repeat('*', 255) . "?",
     ]);
 
@@ -46,7 +47,7 @@ it('should be true and not false draft field', function () {
     actingAs(User::factory()->create());
 
     post(route('question.store', [
-        'question' => str_repeat('*', 55) . "?"
+        'question' => str_repeat('*', 55) . "?",
     ]));
 
     assertDatabaseHas('questions', [
